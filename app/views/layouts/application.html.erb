@@ -8,13 +8,15 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="bg-gray-200 h-full">
-    <%= render 'layouts/header' %>
+  <body>
+    <div class="bg-gray-200 relative min-h-screen ">
+      <%= render 'layouts/header' %>
     
-    <div class="w-3/4 m-auto">
-      <%= yield %>
+      <div class="w-3/4 m-auto pb-10 bg-gray-400 rounded mt-20">
+        <%= yield %>
+      </div>
+    
+      <%= render 'layouts/footer' %>
     </div>
-    
-    <%= render 'layouts/footer' %>
   </body>
 </html>
