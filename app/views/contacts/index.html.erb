@@ -1,0 +1,31 @@
+<%= stylesheet_link_tag "contacts" %>
+
+<div class="index-table">
+  <p id="notice"><%= notice %></p>
+
+  <h1 class="table-title">Contacts</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>NAME</th>
+        <th>PHONE</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @contacts.each do |contact| %>
+        <tr>
+          <td><%= link_to contact.name , contact %></td>
+          <td><%= contact.phone %></td>
+          <td><%= link_to 'Edit', edit_contact_path(contact), class: "table-button-edit" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Contact', new_contact_path, class: "table-button" %>
+</div>

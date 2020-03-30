@@ -1,0 +1,19 @@
+<div class="login-container">
+   <div>
+      <h1>Faça login</h1>
+   </div>
+
+   <div class="login-content">
+      <%= form_for :session, url: login_path, method: :post do |f| %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, placeholder: 'Email' %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, placeholder: 'Senha' %>
+
+      <%= f.submit 'Entrar'%>
+
+      <% end%>
+   </div>
+</div>

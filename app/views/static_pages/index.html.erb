@@ -1,8 +1,11 @@
 <div class="font-mono tracking-tighter p-2">
     <h1 class="m-2 text-xl">Your contact list here</h1>
-
-    <p class="m-2 pt-5"> 
-        If you're not signed in, <a class=" underline hover:text-blue-800 " href="#" >log in</a> to see your contact list. 
-        If you don't have an account, <a class=" underline hover:text-blue-800 " href="#" >sign up</a>.
-    </p>
+    <% if !user_signed_in? %>
+        <p class="m-2 pt-5"> 
+            If you're not signed in, <a class=" underline hover:text-blue-800 " href="/login" >log in</a> to see your contact list. 
+            If you don't have an account, <a class=" underline hover:text-blue-800 " href="/users/new" >sign up</a>.
+        </p>
+    <% else %>
+        <% controller.redirect_to contacts_path %>
+    <% end %>
 </div>

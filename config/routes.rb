@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-
+  
+  
   root to: "static_pages#index"
 
-  get 'contact', to: 'static_pages#contact'
+  get 'get-in-touch', to: 'static_pages#contact'
   get 'about', to: 'static_pages#about'
-  
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'signOff', to: 'sessions#destroy'
 
+  resources :contacts
+  resources :users, only: [:new, :create, :show]
 end

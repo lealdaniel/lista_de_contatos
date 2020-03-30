@@ -1,12 +1,17 @@
 <header class= "flex justify-end bg-gray-100 font-mono w-full">
-    <div class="mr-auto ml-20 font-black mt-6">
+    <div class="mr-auto ml-20 font-black my-5 ">
         <h1 style="" class="text-xl italic ">
             <%= link_to 'CONTACTLIST', root_path %>
         </h1>
     </div>
-    <nav class="mr-20 my-4">
-        <a href="#" >Sign In</a>
-        <a href="#" ><button class="bg-transparent border rounded border-black hover:border-transparent hover:bg-gray-500 text-black py-2 px-3">Sign Up</button></a>        
+    <nav class="mr-20 my-5">
+        <% if !user_signed_in? %>
+            <%= link_to 'Sign In', login_path %>
+            <%= link_to 'Sign Up', new_user_path, class: 'bg-transparent border rounded border-black hover:border-transparent hover:bg-gray-500 text-black py-2 px-3'%>       
+        <% else %>
+            <%= link_to current_user.name, current_user %>
+            <%= link_to 'Sign Off', signOff_path , method: :delete, class: 'bg-transparent border rounded border-black hover:border-transparent hover:bg-gray-500 text-black py-2 px-3'%>       
+        <% end %>
     </nav>
 </header>
 
